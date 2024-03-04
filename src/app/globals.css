@@ -2,32 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+
+
+.info {
+  border-radius: 4px;
+  padding: 15px;
+  height: 3rem;
+  font-size: .8rem; 
+  margin-bottom: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.success::before {
+  content: '✅ '
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.success { 
+  background-color: rgb(227, 250, 215);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+
+.error::before {
+  content: '❌ ';
+}
+
+.error {
+  background-color: rgb(250, 224, 215);  
+}
+
+
+section.auth {
+  height: calc( 100vh - var(--header-height));
+  border: solid 1px darkgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+div.form {
+  height: calc( 100vh - var(--header-height) );
+  display: grid;
+  place-content: center;
+}
+
+div.form h1 {
+  text-align: center;
+}
+
+form.oauth, form.credentials {
+  width: 300px;
+  border: solid 1px lightgray;
+  background-color:rgb(245, 249, 255);
+  /* border-radius: 10px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+form.credentials div {
+  display: grid;
+  gap: 10px;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+}
+
+form button {
+  padding: 10px;
+  font-size: inherit;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  border: solid 1px lightgray;
+  margin: 1px;
+}
+
+form button:hover {
+  background-color: white;
+  outline: solid 1px gray;
+}
+
+
+.social-button {
+  font-size: inherit;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 5px;
+  border: solid 1px lightgray;
+  margin: 1px;
+}
+
+.social-button:hover {
+  background-color: white;
+  outline: solid 1px gray;
+}
+
+.social-button:active {
+  outline: solid 2px black;
 }
