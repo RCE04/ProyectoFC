@@ -1,4 +1,4 @@
-import { loginGoogle, loginGithub } from "@/lib/actions"
+import { loginGoogle, loginGithub, loginSpotify, loginGitlab } from "@/lib/actions"
 
 function OAuthForm() {
 
@@ -11,6 +11,14 @@ function OAuthForm() {
 
         <button formAction={loginGithub} className="social-button">
           <img src="/github.svg" alt="Github" /> Iniciar sesión con Github
+        </button>
+
+        <button formAction={loginSpotify} className="social-button">
+          <img src="/github.svg" alt="Github" /> Iniciar sesión con Spotify
+        </button>
+
+        <button formAction={loginGitlab} className="social-button">
+          <img src="/github.svg" alt="Github" /> Iniciar sesión con Gitçlab
         </button>
       </form>
 

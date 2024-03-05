@@ -52,7 +52,7 @@ export async function login(formData) {
     const matchPassword = await bcrypt.compare(password, user.password)
 
     if (user && matchPassword) {  // && user.emailVerified
-        await signIn('credentials', { email, password, redirectTo: '/dashboard' })
+        await signIn('credentials', { email, password, redirectTo: '/' })
         // return { success: "Inicio de sesión correcto" }
     } else {
         return { error: 'Credenciales incorrectas.' }
@@ -64,7 +64,7 @@ export async function login(formData) {
 // LOGIN google
 export async function loginGoogle() {
     try {
-        await signIn('google', { redirectTo: '/dashboard' })
+        await signIn('google', { redirectTo: '/' })
     } catch (error) {
         throw error
     }
@@ -73,7 +73,25 @@ export async function loginGoogle() {
 // LOGIN github
 export async function loginGithub() {
     try {
-        await signIn('github', { redirectTo: '/dashboard' })
+        await signIn('github', { redirectTo: '/' })
+    } catch (error) {
+        console.log(error);
+        throw error
+    }
+}
+
+export async function loginSpotify() {
+    try {
+        await signIn('spotify', { redirectTo: '/' })
+    } catch (error) {
+        console.log(error);
+        throw error
+    }
+}
+
+export async function loginGitlab() {
+    try {
+        await signIn('gitlab', { redirectTo: '/' })
     } catch (error) {
         console.log(error);
         throw error
@@ -140,7 +158,7 @@ export async function newMecanico(formData) {
     try {
         const nombre = formData.get('nombre');
         const especialidad = formData.get('especialidad');
-        const clienteId = formData.get('')
+        const clienteId = formData.get('clienteId')
 
         const ids = await getClienteIds();
         console.log('IDs ', ids);
@@ -151,7 +169,7 @@ export async function newMecanico(formData) {
                 nombre,
                 especialidad,
                 /* cliente: {
-                     id
+                     id: clienteId
                  },*/
             },
             /* include: {

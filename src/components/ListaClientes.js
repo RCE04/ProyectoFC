@@ -4,12 +4,14 @@ async function ListaClientes({ mecanicoId, disabled }) {
     const clientes = await getClientes();
 
     let mecanico = null;
-    let clienteMecanico = [];
+    let clienteId = null;
 
     if (mecanicoId) {
         mecanico = await getMecanico(mecanicoId);
-        clienteMecanico = mecanico.clientes?.map((c) => c.id) || [];
+        clienteId = mecanico.clienteId;
     }
+
+    console.log(`CLIENTE del MECANICO ${mecanicoId}: `, clienteId);
 
     return (
         <fieldset disabled={disabled}>
@@ -17,10 +19,11 @@ async function ListaClientes({ mecanicoId, disabled }) {
             {clientes?.map((cliente) => (
                 <div key={cliente.id}>
                     <p>
-                        {clienteMecanico.includes(cliente.id)
-                            ? <input type='checkbox' name={cliente.id} value={cliente.id} defaultChecked />
-                            : <input type='checkbox' name={cliente.id} value={cliente.id} />
-                        }
+                        {clienteId === cliente.id ? (
+                            <input type='radio' name='clienteId' value={cliente.id} defaultChecked />
+                        ) : (
+                            <input type='radio' name='clienteId' value={cliente.id} />
+                        )}
                         {cliente.nombre}
                     </p>
                 </div>
@@ -28,5 +31,4 @@ async function ListaClientes({ mecanicoId, disabled }) {
         </fieldset>
     );
 }
-
 export default ListaClientes;
