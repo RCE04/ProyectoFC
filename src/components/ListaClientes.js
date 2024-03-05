@@ -11,7 +11,7 @@ async function ListaClientes({ mecanicoId, disabled }) {
         clienteId = mecanico.clienteId;
     }
 
-    console.log(`CLIENTE del MECANICO ${mecanicoId}: `, clienteId);
+    // console.log(`CLIENTE del MECANICO ${mecanicoId}: `, clienteId);
 
     return (
         <fieldset disabled={disabled}>
