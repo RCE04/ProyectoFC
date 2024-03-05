@@ -216,17 +216,6 @@ export async function editMecanico(formData) {
     const ids = await getClienteIds()
     console.log('IDs ', ids);
 
-    const checks = ids.map(id => formData.get(id.toString()))
-        .filter(id => id !== null)
-        .map(id => id)
-    console.log('CHECKS ', checks);
-
-    const connect = checks.map(id => { return { id: id } })
-    console.log('CONNECT ', connect);
-
-    const difference = ids.filter(id => !checks.includes(id));
-    const disconnect = difference.map(id => { return { id: id } })
-    console.log('DISCONNECT ', disconnect);
 
 
     try {
