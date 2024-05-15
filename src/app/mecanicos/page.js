@@ -9,7 +9,7 @@ async function page() {
   const mecanicos = await getMecanico()
 
   if (sesion?.user.role !== 'ADMIN')
-    redirect('/mecanicos')
+    redirect('/')
 
   return (
     <>
