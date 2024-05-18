@@ -1,9 +1,17 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Carousel from '@/components/carousel';
+
 
 function Parroquia() {
     const [textoEs, cambEs] = useState('');
     const [textoEn, cambEn] = useState('');
+
+    const images = [
+        "parroquia.jpg",
+        "parroquia2.jpg",
+        "parroquia3.jpg"
+    ]
 
     // Define el contenido en español e inglés
     useEffect(() => {
@@ -49,14 +57,7 @@ function Parroquia() {
             </section>
 
 
-            <section id="celda-es" className="w-full md:flex gap-3 items-center mt-0">
-                <div className="w-full md:mx-8 mt-4 md:mt-0 md:w-1/2 mx-auto text-pretty">
-                    <h1 className="text-2xl md:text-4xl text-[#043c54] underline decoration-[#f3bc04] font-bold mb-2 md:mb-4">IMAGENES</h1>
-                </div>
-                {/*CARROUSEL*/}
-            </section>
-
-
+            <Carousel images={images} />
         </section>
     );
 }
