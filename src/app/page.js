@@ -2,11 +2,11 @@ import Carousel from "@/components/carousel";
 
 export default function Home() {
   const images = [
-    "celda.jpg",
+    "celda3.jpg",
     "iglesia1.jpg",
     "iglesia2.jpg",
     "parroquia.jpg",
-    "museo.jpg"
+    "museo-banner.jpg"
   ]
   return (
     <>
