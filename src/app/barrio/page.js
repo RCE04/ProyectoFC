@@ -33,7 +33,7 @@ function Barrio() {
     return (
         <section>
             <div className='bg-cover bg-no-repeat bg-fixed bg-center h-[60vh] bg-[url("/barrio-banner.jpeg")]'>
-                <h1 className="text-4xl font-extrabold text-[#043c54] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20vh] md:-translate-y-[15vh]">
+                <h1 className="text-4xl font-extrabold text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20vh] md:-translate-y-[15vh]">
                     Barrio de la villa
                 </h1>
             </div>
@@ -46,7 +46,7 @@ function Barrio() {
 
             <section id="celda-es" className="w-full md:flex gap-3 items-center mt-0">
                 <div className="w-full md:mx-8 mt-4 md:mt-0 mx-auto text-pretty">
-                    <h1 className="text-2xl md:text-4xl text-[#043c54] underline decoration-[#f3bc04] font-bold mb-2 md:mb-4">HISTORIA</h1>
+                    <h1 className="text-2xl md:text-4xl text-white underline decoration-[#f3bc04] font-bold mb-2 md:mb-4">HISTORIA</h1>
                     <p className="text-lg md:text-lg md:mb-4">
                         {textoEsp || textoIng}
                     </p>

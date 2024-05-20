@@ -35,7 +35,7 @@ function Triunfo() {
     return (
         <section>
             <div className='bg-cover bg-no-repeat bg-fixed bg-center h-[60vh] bg-[url("/triunfo-banner.jpg")]'>
-                <h1 className="text-4xl font-extrabold text-[#043c54] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20vh] md:-translate-y-[15vh]">
+                <h1 className="text-4xl font-extrabold text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20vh] md:-translate-y-[15vh]">
                     Triunfo de San Rafael
                 </h1>
             </div>
