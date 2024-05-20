@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
+import AudioPlayer from '@/components/Audio';
 
 
 function Museo() {
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
+    const [audioSrc, setAudioSrc] = useState('');
 
     const images = [
         "museo-banner.jpg"
@@ -23,9 +25,11 @@ function Museo() {
         if (textoEsp !== '') {
             cambEsp('');
             cambIng(`This church, belonging to the 18th century, is characterized by having miniature architecture although it preserves all the components of a conventual temple. It has a Latin cross plan with three naves, a transept and a quadrangular apse. It has an elegant and orderly cover also from the 18th century. It houses different sculptures in carved and polychrome wood and oil paintings on canvas, all from the same period of its construction. Currently, this space houses the Antonio Villa-Toro Museum, an international painter from Castro assigned to expressionist art.`);
+            setAudioSrc('/path_to_your_english_audio_file.mp3');
         } else {
             cambEsp(`Esta iglesia, perteneciente al siglo XVIII, se caracteriza por tener una arquitectura en miniatura aunque conserva todos los componentes propios de un templo conventual. Presenta planta de cruz latina con tres naves, crucero y ábside cuadrangular. Posee una portada elegante y ordenada también del siglo XVIII. En ella se conservan diferentes esculturas en madera tallada y policromada y óleos sobre lienzo, todos de la misma época de su construcción. En la actualidad, este espacio acoge el Museo Antonio Villa-Toro, pintor internacional castreño adscrito a la plástica expresionista.`);
             cambIng('');
+            setAudioSrc('/español.mp3');
         }
     };
 
@@ -51,6 +55,11 @@ function Museo() {
                     </p>
                 </div>
             </section>
+
+            {/* Añadir el componente AudioPlayer aquí */}
+            <div className="mt-8">
+                <AudioPlayer src={audioSrc} />
+            </div>
 
             <Carousel images={images} />
 
