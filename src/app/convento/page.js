@@ -10,6 +10,15 @@ function Torre() {
 
     const images = [
         "convento1.jpg",
+        "convento2.jpg",
+        "convento3.jpg",
+        "convento4.jpg",
+        "convento5.jpg",
+        "convento6.jpg",
+        "convento7.jpg",
+        "convento8.jpg",
+        "convento9.jpg",
+        "convento10.jpg",
     ];
 
     // Define el contenido en español e inglés

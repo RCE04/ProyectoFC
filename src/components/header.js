@@ -37,7 +37,6 @@ function Header() {
                         </button>
                         {menuOpen && (
                             <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white border border-gray-200 rounded-md shadow-lg">
-                                {/* Aquí colocas las opciones del menú desplegable */}
                                 <Link href="/celda" className="block px-10 py-3 text-sm text-gray-700 hover:bg-gray-100 overflow-hidden">Celda de Cervantes</Link>
                                 <Link href="/castillo" className="block px-10 py-3 text-sm text-gray-700 hover:bg-gray-100 overflow-hidden">Castillo-Muralla</Link>
                                 <Link href="/parroquia" className="block px-20 py-3 text-sm text-gray-700 hover:bg-gray-100 overflow-hidden">Parroquia de nuestra señora de la asuncion</Link>
@@ -51,9 +50,7 @@ function Header() {
                     </div>
                 </div>
 
-                {session?.user?.role === 'ADMIN' &&
-                    <Link href="/clientes" className='text-base font-semibold text-[#043c54] transition-all duration-200 hover:text-[#048dde]'>Clientes</Link>
-                }
+                <Link href="/clientes" className='text-base font-semibold text-[#043c54] transition-all duration-200 hover:text-[#048dde]'>Clientes</Link>
 
                 <nav className='w-full text-right'>
                     {session

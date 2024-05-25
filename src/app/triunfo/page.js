@@ -11,7 +11,8 @@ function Triunfo() {
 
     const images = [
         "triunfo1.jpg",
-        "triunfo2.jpg"
+        "triunfo2.jpg",
+        "triunfo3.jpg"
     ]
 
     // Define el contenido en español e inglés

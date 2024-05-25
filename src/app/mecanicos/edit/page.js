@@ -1,4 +1,4 @@
-import FormMeca from "@/components/FormMeca"
+import FormMeca from "@/components/FormComentario"
 import { prisma } from '@/lib/prisma'
 import { editMecanico } from "@/lib/actions"
 

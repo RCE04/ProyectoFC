@@ -110,129 +110,111 @@ export async function logout() {
 
 
 //Profesores == Mecanicos
-export async function getMecanico() {
+export async function getComentario() {
     try {
-        const mecanicos = await prisma.mecanico.findMany()
-        return mecanicos;
+        const comentarios = await prisma.comentario.findMany()
+        return comentarios;
     } catch (error) {
         // console.log(error);  
         return null;
     }
 }
 
-export async function getClienteIds() {
+export async function getUserIds() {
     const clientes = await prisma.cliente.findMany();
     return clientes.map(cliente => cliente.id);
 }
 
-export async function getClientes() {
+export async function getUsers() {
     try {
-        const clientes = await prisma.cliente.findMany()
-        return clientes;
+        const users = await prisma.user.findMany()
+        return users;
     } catch (error) {
         // console.log(error);  
         return null;
     }
 }
 
-export async function newCliente(formData) {
+export async function newUser(formData) {
     try {
         const nombre = formData.get('nombre');
-        const matricula = formData.get('matricula');
+        const email = formData.get('email');
 
-        const cliente = await prisma.cliente.create({
+        const user = await prisma.user.create({
             data: {
                 nombre,
-                matricula,
+                email,
             },
         });
-        console.log(cliente);
-        revalidatePath('/clientes')
+        console.log(user);
+        revalidatePath('/usuarios')
     } catch (error) {
         console.log(error);
     }
-    redirect('/clientes');
+    redirect('/usuarios');
 }
 
-export async function newMecanico(formData) {
+export async function newComentario(formData) {
     try {
-        const nombre = formData.get('nombre');
-        const especialidad = formData.get('especialidad');
-        const clienteId = formData.get('clienteId')
+        const lugar = formData.get('nombre');
+        const texto = formData.get('especialidad');
 
         const ids = await getClienteIds();
         console.log('IDs ', ids);
 
 
-        const mecanico = await prisma.mecanico.create({
+        const comentario = await prisma.comentario.create({
             data: {
-                nombre,
-                especialidad,
-                /* cliente: {
-                     id: clienteId
-                 },*/
+                lugar,
+                texto,
             },
-            /* include: {
-                 cliente: true,
-             },*/
-
         });
 
-        console.log(mecanico);
-        revalidatePath('/mecanicos');
+        console.log(comentario);
+        revalidatePath('/comentarios');
     } catch (error) {
-        console.error('Error al crear el mecánico:', error.message);
+        console.error('Error al crear el comentario:', error.message);
     }
-    redirect('/mecanicos');
+    redirect('/comentarios');
 }
 
-export async function editCliente(formData) {
+export async function editUser(formData) {
     const id = formData.get('id')
     const nombre = formData.get('nombre')
-    const matricula = formData.get('matricula');
+    const email = formData.get('email');
 
 
     try {
-        const cliente = await prisma.cliente.update({
+        const user = await prisma.user.update({
             where: { id },
             data: {
-                nombre, matricula,
+                nombre, email,
             },
         });
-        console.log(cliente);
-        revalidatePath('/clientes')
+        console.log(user);
+        revalidatePath('/users')
     } catch (error) {
         console.log(error);
     }
-    redirect('/clientes');
+    redirect('/users');
 }
 
-export async function editMecanico(formData) {
+export async function editComentario(formData) {
     const id = formData.get('id')
-    const nombre = formData.get('nombre')
-    const especialidad = formData.get('especialidad')
-
-
-    const ids = await getClienteIds()
-    console.log('IDs ', ids);
+    const texto = formData.get('texto')
+    const lugar = formData.get('lugar')
 
 
 
     try {
-        const mecanico = await prisma.mecanico.update({
+        const comentario = await prisma.comentario.update({
             where: { id },
             data: {
-                nombre,
-                especialidad
-             /*cliente: {
-                    connect,
-                    disconnect,
-                },*/ },
-            /*  include: {
-  cliente: true,
-},*/
+                lugar,
+                texto
+            }
         })
-        console.log(mecanico);
+        console.log(comentario);
         revalidatePath('/mecanicos')
     } catch (error) {
         console.log(error);
@@ -240,38 +222,38 @@ export async function editMecanico(formData) {
     redirect('/mecanicos');
 }
 
-export async function deleteCliente(formData) {
+export async function deleteUser(formData) {
     try {
         const id = formData.get('id')
 
-        const cliente = await prisma.cliente.delete({
+        const user = await prisma.user.delete({
             where: {
                 id: id,
             },
         })
-        console.log(cliente);
-        revalidatePath('/clientes')
+        console.log(user);
+        revalidatePath('/usuarios')
     } catch (error) {
         console.log(error);
     }
 
-    redirect('/clientes');
+    redirect('/usuarios');
 }
 
-export async function deleteMecanico(formData) {
+export async function deleteComentario(formData) {
     try {
         const id = formData.get('id')
 
-        const mecanico = await prisma.mecanico.delete({
+        const comentario = await prisma.comentario.delete({
             where: {
                 id: id,
             },
         })
-        console.log(mecanico);
-        revalidatePath('/mecanicos')
+        console.log(comentario);
+        revalidatePath('/comentarios')
     } catch (error) {
         console.log(error);
     }
 
-    redirect('/mecanicos');
+    redirect('/comentarios');
 }

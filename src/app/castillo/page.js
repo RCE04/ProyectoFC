@@ -10,7 +10,8 @@ function Castillo() {
 
     const images = [
         "castillo1.jpg",
-        "castillo2.jpg"
+        "castillo2.jpg",
+        "castillo3.jpg"
     ]
 
     // Define el contenido en español e inglés

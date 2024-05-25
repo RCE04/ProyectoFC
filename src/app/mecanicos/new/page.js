@@ -1,4 +1,4 @@
-import FormProfesores from "../../../components/FormMeca"
+import FormProfesores from "../../../components/FormComentario"
 import { newMecanico } from "../../../lib/actions"
 
 function page() {
