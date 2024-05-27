@@ -25,7 +25,7 @@ function RegisterForm() {
         <form action={wrapper} className='credentials'>
             <div>
                 <label>Nombre
-                    <input type='text' name='name' placeholder="José García" />
+                    <input type='text' name='nombre' placeholder="Pepe Garcia Ruiz" />
                 </label>
                 <label>Email
                     <input type='email' name='email' placeholder="jose@mail.com" />

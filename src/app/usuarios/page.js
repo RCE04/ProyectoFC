@@ -10,19 +10,19 @@ export default async function Home() {
 
     return (
         <div className="mt-5">
-            <Link className='text-s text-white font-bold mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black ' href="/users/new"> Nuevo user </Link>
+            <Link className='text-s text-white font-bold mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black ' href="/usuarios/new"> Nuevo ususario </Link>
             {
                 users.map((user) => (
                     <User key={user.id} user={user} >
                         <Link
                             className='text-s text-white font-bold mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black '
-                            href={{ pathname: '/users/edit', query: { id: user.id } }}>
-                            Editar user
+                            href={{ pathname: '/usuarios/edit', query: { id: user.id } }}>
+                            Editar usuario
                         </Link>
                         <Link
                             className='text-s text-white font-bold mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black '
-                            href={{ pathname: '/users/delete', query: { id: user.id } }}>
-                            Eliminar user
+                            href={{ pathname: '/usuarios/delete', query: { id: user.id } }}>
+                            Eliminar usuario
                         </Link>
                     </User>
                 ))

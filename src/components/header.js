@@ -50,7 +50,7 @@ function Header() {
                     </div>
                 </div>
 
-                <Link href="/clientes" className='text-base font-semibold text-[#043c54] transition-all duration-200 hover:text-[#048dde]'>Clientes</Link>
+                <Link href="/comentarios" className='text-base mx-16 font-semibold text-[#043c54] transition-all duration-200 hover:text-[#048dde]'>Comentarios</Link>
 
                 <nav className='w-full text-right'>
                     {session

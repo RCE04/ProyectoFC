@@ -1,11 +1,11 @@
-import FormClientes from "@/components/FormClientes"
+import FormClientes from "@/components/FormUsers"
 import { prisma } from '@/lib/prisma'
-import { editCliente } from "@/lib/actions"
+import { editUser } from "@/lib/actions"
 
 export const dynamic = 'force-dynamic'
 
 async function page({ searchParams }) {
-  const cliente = await prisma.cliente.findUnique({
+  const user = await prisma.user.findUnique({
     where: {
       id: searchParams.id,
     },
@@ -13,8 +13,8 @@ async function page({ searchParams }) {
 
   return (
     <div className="mt-5">
-      < h3 className="text-xl font-bold" > Editar cliente</h3 >
-      <FormClientes action={editCliente} title='Editar cliente' cliente={cliente} />
+      < h3 className="text-xl font-bold" > Editar user</h3 >
+      <FormClientes action={editUser} title='Editar cliente' user={user} />
     </div >
   )
 }

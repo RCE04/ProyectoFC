@@ -9,7 +9,7 @@ import { redirect } from 'next/navigation';
 
 // REGISTER
 export async function register(formData) {
-    const name = formData.get('name')
+    const nombre = formData.get('nombre')
     const email = formData.get('email')
     const password = formData.get('password')
 
@@ -26,7 +26,7 @@ export async function register(formData) {
     // Guardamos credenciales en base datos
     await prisma.user.create({
         data: {
-            name,
+            nombre,
             email,
             password: hashedPassword
         }
@@ -109,8 +109,7 @@ export async function logout() {
 }
 
 
-//Profesores == Mecanicos
-export async function getComentario() {
+export async function getComentarios() {
     try {
         const comentarios = await prisma.comentario.findMany()
         return comentarios;
@@ -192,11 +191,11 @@ export async function editUser(formData) {
             },
         });
         console.log(user);
-        revalidatePath('/users')
+        revalidatePath('/usuarios')
     } catch (error) {
         console.log(error);
     }
-    redirect('/users');
+    redirect('/usuarios');
 }
 
 export async function editComentario(formData) {
@@ -215,11 +214,11 @@ export async function editComentario(formData) {
             }
         })
         console.log(comentario);
-        revalidatePath('/mecanicos')
+        revalidatePath('/comentarios')
     } catch (error) {
         console.log(error);
     }
-    redirect('/mecanicos');
+    redirect('/comentarios');
 }
 
 export async function deleteUser(formData) {
