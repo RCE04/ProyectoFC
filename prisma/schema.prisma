@@ -3,34 +3,43 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
+// Uncomment if switching to MySQL in the future
+// datasource db {
+//   provider = "mysql"
+//   url      = env("DATABASE_URL")
+// }
+
 model User {
-  id            String     @id @default(cuid())
-  nombre          String
-  email         String?    @unique
+  id            String       @id @default(cuid())
+  nombre        String
+  email         String?      @unique
   password      String?
   emailVerified DateTime?
   image         String?
-  role          String?    @default("USER") // o ADMIN
+  role          String?      @default("USER") // o ADMIN
   accounts      Account[]
   comments      Comentario[]
+
+  @@map("users")
 }
 
 model Account {
-  id                String   @id @default(cuid())
+  id                String  @id @default(cuid())
   userId            String
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String?  @db.Text
-  access_token      String?  @db.Text
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String?  @db.Text
+  id_token          String? @db.Text
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -39,11 +48,11 @@ model Account {
 }
 
 model Comentario {
-  id        String   @id @default(cuid())
+  id        String @id @default(cuid())
   lugar     String
   texto     String
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userEmail String // Cambio en el nombre del campo
+  user      User   @relation(fields: [userEmail], references: [email], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
