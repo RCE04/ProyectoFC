@@ -45,7 +45,7 @@ function Parroquia() {
             </div>
 
             <div className="w-full text-right">
-                <button onClick={changeLanguage} className="text-right">
+                <button onClick={changeLanguage} className="inline-flex items-center justify-center mt-4 px-4 py-2 text-base md:text-lg font-semibold text-black border-2 border-black hover:bg-[#043c54]  transition-all duration-200 focus:bg-[#043c54] hover:text-[#f3bc04] hover:border-[#f3bc04]">
                     Cambiar Idioma
                 </button>
             </div>
