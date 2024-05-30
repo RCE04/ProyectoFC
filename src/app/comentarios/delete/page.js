@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 
 async function page({ searchParams }) {
   console.log(searchParams)
-  const cliente = await prisma.cliente.findUnique({
+  const comentario = await prisma.comentarios.findUnique({
     where: {
       id: searchParams.id,
     },
@@ -14,8 +14,8 @@ async function page({ searchParams }) {
 
   return (
     <div className="mt-5">
-      <h3 className="text-xl font-bold">Eliminar cliente {searchParams.id}</h3>
-      <FormComentario action={deleteComentario} title='Eliminar cliente' cliente={cliente} disabled={true} />
+      <h3 className="text-xl font-bold">Eliminar comentario {searchParams.id}</h3>
+      <FormComentario action={deleteComentario} title='Eliminar comentario' comentario={comentario} disabled={true} />
     </div>
   )
 }
