@@ -1,3 +1,5 @@
+import { auth } from "@/auth"
+import { redirect } from "next/navigation"
 import Link from 'next/link'
 import User from '@/components/User'
 import { getUsers } from '@/lib/actions'
@@ -5,6 +7,12 @@ import { getUsers } from '@/lib/actions'
 export const dynamic = 'force-dynamic'
 
 export default async function Home() {
+    const sesion = await auth()
+
+    if (sesion?.user.role !== 'ADMIN') {
+        redirect('/')
+    }
+
     const users = await getUsers()
     // console.log(zoos);
 
