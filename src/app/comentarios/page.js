@@ -15,10 +15,10 @@ export default async function Home() {
     console.log(`User Role from session: ${userRole}`);
 
     return (
-        <div className="mt-5">
+        <div className="my-5">
             {session && userRole !== 'ADMIN' && (
                 <Link
-                    className="text-s text-white font-bold mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black"
+                    className="text-s text-white font-bold mb-10 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
                     href="/comentarios/new"
                 >
                     Nuevo comentario
@@ -31,15 +31,15 @@ export default async function Home() {
                             <>
                                 <Link
                                     href={{ pathname: '/comentarios/edit', query: { id: comentario.id } }}
-                                    className='hover:text-sky-300 px-2 text-center'
+                                    className="text-s text-white font-bold mt-4 mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
                                 >
                                     Modificar
                                 </Link>
                                 <Link
-                                    className="text-s text-white font-bold mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black"
+                                    className="text-s text-white font-bold mx-4 mt-4 mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
                                     href={{ pathname: '/comentarios/delete', query: { id: comentario.id } }}
                                 >
-                                    Eliminar comentario
+                                    Eliminar
                                 </Link>
                             </>
                         )}
