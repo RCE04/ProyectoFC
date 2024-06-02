@@ -1,5 +1,4 @@
 import LoginForm from '@/components/login-form'
-import OAuthForm from '@/components/oauth-form'
 
 // https://next-auth.js.org/configuration/pages#sign-in-page
 const errors = new Map();
@@ -21,10 +20,9 @@ function page({ searchParams }) {
   return (
     <>
       {error && <h3>{errors.get(error)}</h3>}
-      <div className="form">
-        <h1>Iniciar sesión</h1>
+      <div className="flex flex-col items-center mt-5">
+        <h3 className="text-xl font-bold mb-4">Iniciar sesion</h3>
         <LoginForm />
-        <OAuthForm error={error} />
       </div>
     </>
   )

@@ -12,8 +12,8 @@ async function page({ searchParams }) {
   })
 
   return (
-    <div className="mt-5">
-      < h3 className="text-xl font-bold" > Editar user</h3 >
+    <div className="flex flex-col items-center mt-5">
+      <h3 className="text-xl font-bold mb-4">Editar Usuario</h3>
       <FormClientes action={editUser} title='Editar cliente' user={user} />
     </div >
   )

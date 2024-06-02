@@ -13,8 +13,8 @@ async function page({ searchParams }) {
   })
 
   return (
-    <div className="mt-5">
-      <h3 className="text-xl font-bold">Eliminar usuario {searchParams.id}</h3>
+    <div className="flex flex-col items-center mt-5">
+      <h3 className="text-xl font-bold mb-4">Eliminar usuario</h3>
       <Form action={deleteUser} title='Eliminar usuario' user={user} disabled={true} />
     </div>
   )
