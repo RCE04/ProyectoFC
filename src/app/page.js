@@ -58,6 +58,13 @@ export default function Home() {
         </div>
         <Carousel images={images} />
       </section>
+
+      <section className='my-10 border-[#f3bc04] md:border-0 flex flex-col items-center'>
+        <div className='text-4xl text-[#043c54] font-bold mx-4 md:mx-8 lg:mx-64 border-4 border-l-[#fff] border-t-[#fff] border-r-[#fff] border-b-[#f3bc04]'>
+          Mapa de Lugares
+        </div>
+        <a href="/mapa.jpg"><img src="mapa2.jpg" alt="mapa" className='mt-4' /></a>
+      </section>
     </>
   );
 }
