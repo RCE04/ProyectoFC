@@ -7,8 +7,8 @@ import AudioPlayer from '@/components/Audio';
 function Triunfo() {
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
-    const [img, cambImg] = useState('/assets/español.jpg')
-    const [audioSrc, setAudioSrc] = useState('');
+    const [img, cambImg] = useState('/assets/ingles.png')
+    const [audioSrc, setAudioSrc] = useState('/audios/TriunfoEspañol.mp3');
 
     const images = [
         "triunfo1.jpg",
@@ -28,15 +28,14 @@ function Triunfo() {
         // Cambia entre el contenido en español e inglés
         if (textoEsp !== '') {
             cambEsp('');
-            cambIng(`This monument with a neoclassical imprint, of unknown author, was built between the 18th and 19th centuries, due to the influence that came from Córdoba, the city where the Archangel is Custodian. Outside the borders of the capital of Cordoba, it is the only Triunfo erected in San Rafael. It is built in a square and consists of a pedestal that supports a narrower one, followed by a slender fluted column crowned by a Corinthian capital, on which a pedestal serves as a base for the figure of the Archangel. The inscription tells us that it was rebuilt in 1884. These modifications were limited, as we have learned, to the placement of the current fence with iron bars with pointed ends and the construction of the basement on which it sits, in order to protect the monument complex.
-            `);
-            setAudioSrc('/path_to_your_english_audio_file.mp3');
-            cambImg('/assets/ingles.png');
+            cambIng('This monument with a neoclassical imprint, of unknown author, was built between the 18th and 19th centuries, due to the influence that came from Córdoba, the city where the Archangel is Custodian. Outside the borders of the capital of Cordoba, it is the only Triunfo erected in San Rafael. It is built in a square and consists of a pedestal that supports a narrower one, followed by a slender fluted column crowned by a Corinthian capital, on which a pedestal serves as a base for the figure of the Archangel. The inscription tells us that it was rebuilt in 1884. These modifications were limited, as we have learned, to the placement of the current fence with iron bars with pointed ends and the construction of the basement on which it sits, in order to protect the monument complex.');
+            setAudioSrc('/audios/TriunfoIngles.mp3');
+            cambImg('/assets/español.png');
         } else {
-            cambEsp(`Este monumento de impronta neoclásica, de autor desconocido, fue construido entre los siglos XVIII y XIX, debido a la influencia que llegaba desde Córdoba, ciudad donde el Arcángel es Custodio. Fuera de las fronteras de la capital cordobesa, es el único Triunfo erigido a San Rafael. Está construido en una plaza y consta de un pedestal que soporta otro más estrecho, seguido de una esbelta columna estriada coronada por un capitel corintio, en la que una peana sirve de base a la figura del Arcángel. La inscripción nos dice que fue reedificado en 1884. Estas modificaciones se limitaron, según hemos podido conocer, a la colocación de la verja actual con barras de hierro con terminaciones puntiagudas y a la construcción del basamento sobre el que se asienta, con objeto de proteger el conjunto monumenta.`);
+            cambEsp('Este monumento de impronta neoclásica, de autor desconocido, fue construido entre los siglos XVIII y XIX, debido a la influencia que llegaba desde Córdoba, ciudad donde el Arcángel es Custodio. Fuera de las fronteras de la capital cordobesa, es el único Triunfo erigido a San Rafael. Está construido en una plaza y consta de un pedestal que soporta otro más estrecho, seguido de una esbelta columna estriada coronada por un capitel corintio, en la que una peana sirve de base a la figura del Arcángel. La inscripción nos dice que fue reedificado en 1884. Estas modificaciones se limitaron, según hemos podido conocer, a la colocación de la verja actual con barras de hierro con terminaciones puntiagudas y a la construcción del basamento sobre el que se asienta, con objeto de proteger el conjunto monumenta.');
             cambIng('');
-            setAudioSrc('/español.mp3');
-            cambImg('/assets/español.jpg');
+            setAudioSrc('/audios/TriunfoEspañol.mp3');
+            cambImg('/assets/ingles.png');
         }
     };
 
