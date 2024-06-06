@@ -1,9 +1,11 @@
-import Link from 'next/link'
-import Comentario from '@/components/Comentario'
-import { getComentariosE } from '@/lib/actions'
-import { auth } from '@/auth'
+import Link from 'next/link';
+import Comentario from '@/components/Comentario';
+import { getComentariosE } from '@/lib/actions';
+import { auth } from '@/auth';
+import FormComentario from "@/components/FormComentario"
+import { newComentario } from "@/lib/actions"
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
     const comentarios = await getComentariosE();
@@ -14,21 +16,45 @@ export default async function Home() {
     console.log(`User Email from session: ${userEmail}`);
     console.log(`User Role from session: ${userRole}`);
 
+    const userComentarios = comentarios.filter(comentario => comentario.user.email === userEmail);
+
     return (
         <div className="my-5">
-            {session && userRole !== 'ADMIN' && (
-                <Link
-                    className="text-s text-white font-bold mb-10 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
-                    href="/comentarios/new"
-                >
-                    Nuevo comentario
-                </Link>
-            )}
-            {
-                comentarios.map((comentario) => (
-                    <Comentario key={comentario.id} comentario={comentario}>
-                        {session && (userRole === 'ADMIN' || userEmail === comentario.user.email) && (
-                            <>
+            {session && userRole === 'ADMIN' ? (
+                <>
+                    <Link
+                        className="text-s text-white font-bold mb-10 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
+                        href="/comentarios/new"
+                    >
+                        Nuevo comentario
+                    </Link>
+                    {comentarios.map((comentario) => (
+                        <Comentario key={comentario.id} comentario={comentario}>
+                            <Link
+                                href={{ pathname: '/comentarios/edit', query: { id: comentario.id } }}
+                                className="text-s text-white font-bold mt-4 mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
+                            >
+                                Modificar
+                            </Link>
+                            <Link
+                                className="text-s text-white font-bold mx-4 mt-4 mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
+                                href={{ pathname: '/comentarios/delete', query: { id: comentario.id } }}
+                            >
+                                Eliminar
+                            </Link>
+                        </Comentario>
+                    ))}
+                </>
+            ) : (
+                <>
+                    <div className="flex flex-col items-center mt-5">
+                        <h3 className="text-xl font-bold mb-4">Nuevo Comentario</h3>
+                        <FormComentario action={newComentario} title='Crear Comentario' comentario={null} />
+                    </div>
+                    <h3 className="text-xl font-bold my-4">Tus comentarios</h3>
+                    {userComentarios.length > 0 ? (
+                        userComentarios.map((comentario) => (
+                            <Comentario key={comentario.id} comentario={comentario}>
                                 <Link
                                     href={{ pathname: '/comentarios/edit', query: { id: comentario.id } }}
                                     className="text-s text-white font-bold mt-4 mb-4 border-2 border-black bg-teal-600 py-1 px-1 hover:bg-white hover:text-black transition-all duration-200"
@@ -41,11 +67,13 @@ export default async function Home() {
                                 >
                                     Eliminar
                                 </Link>
-                            </>
-                        )}
-                    </Comentario>
-                ))
-            }
+                            </Comentario>
+                        ))
+                    ) : (
+                        <p>No has escrito ningún comentario.</p>
+                    )}
+                </>
+            )}
         </div>
-    )
+    );
 }
