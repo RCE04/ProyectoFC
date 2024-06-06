@@ -23,7 +23,7 @@ const Menu = () => {
     }, [menuOpen]);
 
     return (
-        <div className="relative menu-container">
+        <div className="relative menu-container z-20">
             <button
                 onClick={toggleMenu}
                 className="font-semibold text-gray-900 transition-all duration-200 hover:text-[#048dde]"
@@ -35,7 +35,7 @@ const Menu = () => {
             {menuOpen && (
                 <div
                     id="monumentos-menu"
-                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white border border-gray-200 rounded-md shadow-lg"
+                    className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-30"
                 >
                     <Link href="/celda" className="block px-10 py-3 text-sm text-gray-700 hover:bg-gray-100">Celda de Cervantes</Link>
                     <Link href="/castillo" className="block px-10 py-3 text-sm text-gray-700 hover:bg-gray-100">Castillo-Muralla</Link>
