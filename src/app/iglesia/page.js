@@ -10,7 +10,7 @@ function Iglesia() {
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
     const [img, cambImg] = useState('/assets/ingles.png')
-    const [audioSrc, setAudioSrc] = useState('');
+    const [audioSrc, setAudioSrc] = useState('/audios/CarmenEspañol.mp3');
 
     const images = [
         "iglesia1.jpg",
@@ -30,12 +30,12 @@ function Iglesia() {
         if (textoEsp !== '') {
             cambEsp('');
             cambIng(`The origin of this conventual temple dates back to 1554, the year in which it was founded by the Order of the Discalced Carmelites. The Church of Nuestra Señora del Carmen houses highly relevant sculptural works, such as the carving of the Christ of Mercy, the work of Castillo Lastrucci, the image of María Santísima de la Soledad from 1944 and the Holy Sepulchre, processed in Holy Week during the Good Friday night. It is a temple with a single vaulted nave with half-barrels, with a slender transept with short arms, centered by a dome and a square apse. On the outside of the church we find two doorways, of which the main one is made of brick, with pilasters and moldings, and in which we can see the coat of arms of Carmel. Also preserved, attached to the church, is the porticoed interior patio of the old Convent, with semicircular arches on columns.`);
-            setAudioSrc('/path_to_your_english_audio_file.mp3');
+            setAudioSrc('/audios/CarmenIngles.mp3');
             cambImg('/assets/español.png');
         } else {
             cambEsp(`El origen de este templo conventual se remonta a 1554, año en el que se fundó por parte de la Orden de los Carmelitas Descalzos. La Iglesia de Nuestra Señora del Carmen acoge obras escultóricas de gran relevancia, como la talla del Cristo de la Misericordia, obra de Castillo Lastrucci, la imagen de María Santísima de la Soledad de 1944 y el Santo Sepulcro, procesionadas en la Semana Santa durante la noche del Viernes Santo. Se trata de un templo de una sola nave abovedada de medios cañones, con esbelto crucero de cortos brazos, centrado por cúpula y ábside cuadrado. En el exterior de la iglesia encontramos dos portadas, de las que la principal está realizada en ladrillo, con pilastras y molduras, y en las que podemos observar el escudo del Carmelo. También se conserva, adosado a la iglesia, el patio interior porticado del antiguo Convento, con arquerías de medio punto sobre columnas.`);
             cambIng('');
-            setAudioSrc('/español.mp3');
+            setAudioSrc('/audios/CarmenEspañol.mp3');
             cambImg('/assets/ingles.png')
         }
     };
