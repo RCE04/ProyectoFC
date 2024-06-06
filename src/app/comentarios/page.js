@@ -4,6 +4,7 @@ import { getComentariosE } from '@/lib/actions';
 import { auth } from '@/auth';
 import FormComentario from "@/components/FormComentario"
 import { newComentario } from "@/lib/actions"
+import { redirect } from "next/navigation"
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +19,9 @@ export default async function Home() {
 
     const userComentarios = comentarios.filter(comentario => comentario.user.email === userEmail);
 
+    if (session?.user.role !== 'ADMIN' && session?.user.role !== 'USER') {
+        redirect('/')
+    }
     return (
         <div className="my-5">
             {session && userRole === 'ADMIN' ? (

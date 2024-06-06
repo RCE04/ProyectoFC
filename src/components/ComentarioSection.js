@@ -18,7 +18,7 @@ const ComentariosSection = ({ lugar }) => {
 
     return (
         <section className="comentarios-section mt-8 p-4 md:p-8 bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#043c54] mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#043c54] mb-4 underline decoration-[#f3bc04]">
                 Comentarios de {lugar}
             </h2>
             {comentarios.length > 0 ? (
