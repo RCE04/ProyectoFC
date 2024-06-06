@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
 
 function Torre() {
+    const lugar = "Convento de Scala Coeli";
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
     const [img, cambImg] = useState('/assets/ingles.png')
@@ -70,6 +72,8 @@ function Torre() {
             </div>
 
             <Carousel images={images} />
+
+            <ComentariosSection lugar={lugar} />
         </section>
     );
 }

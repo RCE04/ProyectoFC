@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
 
 function Castillo() {
+    const lugar = "Castillo-Muralla";
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
     const [audioSrc, setAudioSrc] = useState('');
@@ -67,6 +69,7 @@ function Castillo() {
 
             <Carousel images={images} />
 
+            <ComentariosSection lugar={lugar} />
 
         </section>
     );

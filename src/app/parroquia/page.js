@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
 
 
 function Parroquia() {
+    const lugar = "Parroquia de nuestra señora de la asuncion";
     const [textoEs, cambEs] = useState('');
     const [textoEn, cambEn] = useState('');
     const [audioSrc, setAudioSrc] = useState('/audios/AsuncionEspañol.mp3');
@@ -67,6 +69,7 @@ function Parroquia() {
             </div>
 
             <Carousel images={images} />
+            <ComentariosSection lugar={lugar} />
         </section>
     );
 }

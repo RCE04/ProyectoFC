@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
 
 
 function Museo() {
+    const lugar = "Museo Antonio Villa-Toro";
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
     const [img, cambImg] = useState('/assets/ingles.png')
@@ -65,6 +67,7 @@ function Museo() {
 
             <Carousel images={images} />
 
+            <ComentariosSection lugar={lugar} />
 
         </section>
     );

@@ -185,6 +185,19 @@ export async function deleteComentario(formData) {
     redirect('/comentarios');
 }
 
+export async function getComentariosByLugar(lugar) {
+    try {
+        const comentarios = await prisma.comentario.findMany({
+            where: { lugar },
+            orderBy: { createdAt: 'desc' },
+        });
+        return comentarios;
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
+}
+
 // USERS
 
 export async function getUsers() {

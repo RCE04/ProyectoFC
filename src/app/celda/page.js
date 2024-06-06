@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
 
 function Celda() {
+    const lugar = "Celda de Cervantes";
     const [textoEsp, cambEs] = useState('');
     const [textoIng, cambIng] = useState('');
-    const [audioSrc, setAudioSrc] = useState('');
+    const [audioSrc, setAudioSrc] = useState('/audios/CeldaEspañol.mp3');
     const [img, cambImg] = useState('/assets/ingles.png')
 
     const images = [
@@ -26,15 +28,17 @@ function Celda() {
         if (textoEsp !== '') {
             cambEs('');
             cambIng(`In what is now considered the Town Hall, Miguel de Cervantes was imprisoned, and according to the prestigious Cervantes scholar Caravaggio, the first pages of "Don Quixote" were gestated here. Cervantes seized 200 fanegas of wheat from a canon and the City Council in Castro del Río, as well as 1,489 and a half fanegas of wheat, as well as cereals belonging to the church. Through the mediation of Diego de Valvovia, Cervantes obtained the position of royal commissioner of supplies for the Invincible Armada. Later, he would be tasked with collecting overdue taxes in Granada, having once again been denied the position in the Indies that he had reapplied for in 1590. These jobs would force him to endure, until the end of the century, a mercantilist wandering in the south, even suffering imprisonment in Castro del Río during 1592.`);
-            setAudioSrc('/path_to_your_english_audio_file.mp3');
+            setAudioSrc('/audios/CeldaIngles.mp3');
             cambImg('/assets/español.png');
         } else {
             cambEs(`En lo que hoy se considera el Ayuntamiento, estuvo preso, y según el prestigioso cervanista Caravaggio se gestaron las primeras páginas de "El Quijote". Cervantes embargó en Castro del Río 200 fanegas de trigo a un canónigo y al Concejo, justicia y regimiento de la villa y 1.489 fanegas y media de trigo, así como cereales de propiedad eclesiástica. Cervantes obtiene por mediación de Diego de Valvovia, el cargo de comisario real de abastos para la Armada Invencible. Más tarde sería encargado de recaudar las tasas atrasadas en Granada, habiéndose denegado una vez más el oficio en Indias que había vuelto a solicitar en 1590. Estos empleos lo arrostrarían a soportar hasta finales del siglo, un vagabundeo mercantilista por el sur llegando a sufrir encarcelamiento en Castro del Río durante 1592.`);
             cambIng('');
-            setAudioSrc('/español.mp3');
+            setAudioSrc('/audios/CeldaEspañol.mp3');
             cambImg('/assets/ingles.png');
         }
     };
+
+
 
     return (
         <section>
@@ -64,6 +68,8 @@ function Celda() {
             </div>
 
             <Carousel images={images} />
+
+            <ComentariosSection lugar={lugar} />
 
         </section>
     );

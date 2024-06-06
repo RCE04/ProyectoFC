@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
 
 
 function Iglesia() {
+    const lugar = "Iglesia de nuestra señora del carmen";
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
     const [img, cambImg] = useState('/assets/ingles.png')
@@ -67,6 +69,8 @@ function Iglesia() {
             </div>
 
             <Carousel images={images} />
+
+            <ComentariosSection lugar={lugar} />
 
         </section>
     );

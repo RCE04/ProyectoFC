@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import Carousel from '@/components/carousel';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
 
 
 function Triunfo() {
+    const lugar = "Triunfo de San Rafael";
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
     const [img, cambImg] = useState('/assets/ingles.png')
@@ -70,7 +72,7 @@ function Triunfo() {
 
 
             <Carousel images={images} />
-
+            <ComentariosSection lugar={lugar} />
 
         </section>
     );

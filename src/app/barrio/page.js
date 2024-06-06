@@ -2,8 +2,11 @@
 import Carousel from '@/components/carousel';
 import React, { useState, useEffect } from 'react';
 import AudioPlayer from '@/components/Audio';
+import ComentariosSection from '@/components/ComentarioSection';
+
 
 function Barrio() {
+    const lugar = "Barrio de la villa";
     const [textoEsp, cambEsp] = useState('');
     const [textoIng, cambIng] = useState('');
     const [audioSrc, setAudioSrc] = useState('');
@@ -66,6 +69,8 @@ function Barrio() {
             </div>
 
             <Carousel images={images} />
+
+            <ComentariosSection lugar={lugar} />
 
         </section>
     );
