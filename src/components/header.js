@@ -40,7 +40,7 @@ async function Header() {
                 </nav>
             </div>
 
-            <Hamburguesa session={session} logout={logout} />
+            <Hamburguesa className="pl-5" session={session} logout={logout} />
         </header>
     );
 }

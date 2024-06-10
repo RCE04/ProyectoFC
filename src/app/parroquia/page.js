@@ -54,10 +54,10 @@ function Parroquia() {
                 </button>
             </div>
 
-            <section id="celda-es" className="w-full md:flex gap-3 items-center mt-0">
+            <section id="celda-es" className="w-full p-5 md:flex gap-3 items-center mt-0">
                 <div className="w-full md:mx-8 mt-4 md:mt-0 mx-auto text-pretty">
                     <h1 className="text-2xl md:text-4xl text-[#043c54] underline decoration-[#f3bc04] font-bold mb-2 md:mb-4">HISTORIA</h1>
-                    <p className="text-lg md:text-lg md:mb-4">
+                    <p className="text-lg p-5 md:text-lg md:mb-4">
                         {textoEs || textoEn}
                     </p>
                 </div>

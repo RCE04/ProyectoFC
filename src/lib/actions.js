@@ -6,21 +6,20 @@ import { getUserByEmail } from '@/lib/data';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-// REGISTER
+// REGISTER: se encarga de insertar los nuevos usuarios en la base de datos
 export async function register(formData) {
     const nombre = formData.get('nombre');
     const email = formData.get('email');
     const password = formData.get('password');
 
-    // Comprobamos si el usuario ya está registrado
-    const user = await getUserByEmail(email);
+
+    const user = await getUserByEmail(email); // Comprobamos si el usuario ya está registrado
 
     if (user) {
         return { error: 'El email ya está registrado' };
     }
 
-    // Encriptamos password 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10); // Encriptamos password 
 
     // Guardamos credenciales en base datos
     await prisma.user.create({
@@ -39,8 +38,8 @@ export async function login(formData) {
     const email = formData.get('email');
     const password = formData.get('password');
 
-    // Comprobamos si el usuario está registrado
-    const user = await getUserByEmail(email);
+
+    const user = await getUserByEmail(email);// Comprobamos si el usuario está registradoDº
 
     if (!user) {
         return { error: 'Usuario no registrado.' };

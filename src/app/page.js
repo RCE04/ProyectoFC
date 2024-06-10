@@ -18,15 +18,15 @@ export default function Home() {
         </h1>
       </div>
 
-      <section className="w-full md:flex gap-3 items-center mt-4">
+      <section className="w-full p-5 md:flex gap-3 items-center mt-4">
         <div className="w-full md:mx-8 mt-4 md:mt-0 md:w-1/2 mx-auto text-pretty">
           <h1 className="text-2xl md:text-4xl text-[#043c54] underline decoration-[#f3bc04] font-bold mb-2 md:mb-4">HISTORIA</h1>
-          <p className="text-lg md:text-lg md:mb-4">El abrazo de las aguas del Guadajoz, río que ha dado forma a este singular cruce de caminos entre Granada y Córdoba, la villa de Castro del Río, territorio que se ha asentado en la campiña desde la prehistoria, (íberos, romanos, árabes, y cristianos), culturas que eligieron estas tierras en las que hoy nos encontramos Castro del Río como su hogar, su medio de vida y sobre todo, un lugar en el que legarnos su arte y su cultura.</p>
+          <p className="text-lg p-5 md:text-lg md:mb-4">El abrazo de las aguas del Guadajoz, río que ha dado forma a este singular cruce de caminos entre Granada y Córdoba, la villa de Castro del Río, territorio que se ha asentado en la campiña desde la prehistoria, (íberos, romanos, árabes, y cristianos), culturas que eligieron estas tierras en las que hoy nos encontramos Castro del Río como su hogar, su medio de vida y sobre todo, un lugar en el que legarnos su arte y su cultura.</p>
         </div>
         <img src='castro1.jpg' className='w-full md:w-1/2 h-50 object-cover' alt="Detalles de Artesanía" />
       </section>
 
-      <section className="w-full md:flex gap-3 items-center mt-2 md:mt-0">
+      <section className="w-full p-5 md:flex gap-3 items-center mt-2 md:mt-0">
         <div className="w-full md:mx-13 mt-4 md:mt-0 mx-auto text-pretty">
           <h1 className="text-3xl md:text-4xl text-[#043c54] underline decoration-[#f3bc04] font-bold mb-2 md:mt-4 md:mx-10">Lugares a visitar:</h1>
           <ul className="text-lgs md:text-lg md:mt-2 md:mx-16 space-y-2">
