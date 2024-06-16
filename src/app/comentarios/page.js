@@ -20,7 +20,7 @@ export default async function Home() {
     const userComentarios = comentarios.filter(comentario => comentario.user.email === userEmail);
 
     if (session?.user.role !== 'ADMIN' && session?.user.role !== 'USER') {
-        redirect('/')
+        redirect('/auth/login')
     }
     return (
         <div className="my-5">
@@ -55,7 +55,7 @@ export default async function Home() {
                         <h3 className="text-xl font-bold mb-4">Nuevo Comentario</h3>
                         <FormComentario action={newComentario} title='Crear Comentario' comentario={null} />
                     </div>
-                    <h3 className="text-xl font-bold my-4">Tus comentarios</h3>
+                    <h3 className="text-xl pl-5 font-bold my-4">Tus comentarios</h3>
                     {userComentarios.length > 0 ? (
                         userComentarios.map((comentario) => (
                             <Comentario key={comentario.id} comentario={comentario}>
@@ -74,7 +74,7 @@ export default async function Home() {
                             </Comentario>
                         ))
                     ) : (
-                        <p>No has escrito ningún comentario.</p>
+                        <p className='pl-5'>No has escrito ningún comentario.</p>
                     )}
                 </>
             )}

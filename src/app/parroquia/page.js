@@ -63,7 +63,6 @@ function Parroquia() {
                 </div>
             </section>
 
-            {/* Añadir el componente AudioPlayer aquí */}
             <div className="mt-8">
                 <AudioPlayer src={audioSrc} />
             </div>
